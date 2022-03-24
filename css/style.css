@@ -81,6 +81,7 @@
         width: 20%;
         left:10%;
         }
+        b{visibility: hidden;}
     }
     img {
         position: absolute;
@@ -99,3 +100,4 @@
         vertical-align: middle;
         
     }
+    
