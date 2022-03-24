@@ -5,6 +5,7 @@ alt_sprite=quadrato.offsetTop;
 lar_sprite=quadrato.offsetLeft;
 barraSprite=document.getElementById("barra");
 quadrato=document.getElementById("quadrato");
+terreno=document.getElementById("terreno");
 cuore=document.getElementById("cuore");
 step=0;
 step=schermox+30;
@@ -46,8 +47,15 @@ function barra(){
         step=schermox+49;
     }
 }
-function comandi(event){
-    var keyID = event.keyCode;
+function mobileTouch(){
+    comandi(0,32);
+    console.log("t")
+}
+function comandi(event,t){
+    if(event==0){var keyID = t;}else
+    {var keyID = event.keyCode;}
+    
+    console.log("t"+keyID+event )
     c=0;
     if(keyID == 32){
         Isalto=setInterval(salto,13); 
@@ -73,7 +81,7 @@ function base(){
             jumpspeed+=1;
             quadrato.style.top=jumpspeed+"px";  
             console.log(alt_sprite,jumprange,altezzabase,altezzabase-jumprange)
-            if(alt_sprite == alt_barra-20){clearInterval(Ibase);}
+            if(isColliding(quadrato,terreno)){clearInterval(Ibase);}
 }
 let isColliding = function (div1, div2) {
 

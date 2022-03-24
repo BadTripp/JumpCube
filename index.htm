@@ -4,14 +4,14 @@
     <script async type="text/javascript" src="./js/common.js"></script>
     
 </head>
-<body onload="movimento();" >
+<body onload="movimento();" ontouchstart="mobileTouch();" >
     <div class=" assoluto totale origine sfondo-bianco  " id="schermo">
         <div>
         <div class="assoluto barra" id="barra"></div>
         <div class="assoluto quadrato" id="quadrato">
         <div><img class="assoluto"  src="./img/heart.png" id="cuore" /></div>
         </div>
-        <div class="assoluto terreno"></div>
+        <div class="assoluto terreno" id="terreno"></div>
         <div class="assoluto  score" id="score-text">Score: 0 </div>
         
     </div>
