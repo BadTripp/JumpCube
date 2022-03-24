@@ -18,7 +18,7 @@ function movimento(){
     deltaTop=alt_sprite-schermoy;
     deltaLeft=lar_sprite-schermox;
     //console.log("|MonitorX:"+schermox+"|MonitorY:"+schermoy+"|XSprite:"+lar_sprite,"|YSprite:"+alt_sprite);
-    console.log(deltaTop);
+    
     document.addEventListener("keydown", comandi);
     if(lar_sprite == lar_barra && alt_sprite == alt_barra ){alert("Game Over!")}
     barra();
