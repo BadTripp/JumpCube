@@ -13,7 +13,7 @@
 .sfondo-bianco{background-color: white;}
 .barra{
     position: absolute;
-    bottom: 55%;
+    bottom: 54%;
     left: 90%;
     width: 30px;
     height: 10px;
@@ -46,3 +46,12 @@
       height:10%;
       border:10px solid rgb(53, 53, 46);
   }
+  
+  img {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
