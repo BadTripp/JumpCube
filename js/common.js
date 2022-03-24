@@ -12,6 +12,7 @@ quadratoW=document.getElementById("quadrato").clientWidth;
 quadratoH=document.getElementById("quadrato").clientHeight;
 terreno=document.getElementById("terreno");
 cuore=document.getElementById("cuore");
+opacityanim=1;
 scorePanel=document.getElementById("score-text");
 step=0;
 step=schermox+30;
@@ -66,9 +67,11 @@ function barra(){
 barraSprite.style.visibility="visible";
 step-=gamespeed;
 barraSprite.style.left=step+"px";
+if(lar_sprite > lar_barra && opacityanim > 0){ console.log("op"+opacityanim) ;opacityanim-=0.003; barraSprite.style.opacity=opacityanim}
 if(barraSprite.offsetLeft <= 0)
 {   Rcaso=Math.floor(Math.random() * 1);
-    
+    opacityanim=1;
+    barraSprite.style.opacity=opacityanim
     larghezzabarra=Math.floor(Math.random() * 45)+25;
     barraSprite.style.width=larghezzabarra+"px";
     if(Rcaso==1){ altezzabarra=Math.floor(Math.random() * 10);barraSprite.style.top=barraSprite.offsetTop-altezzabarra+"px";}
