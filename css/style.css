@@ -1,6 +1,7 @@
 .totale{
     height:100% !important;;
-    width:100% !important;;    
+    width:100% !important;;  
+
 }
 .assoluto{
     position: absolute !important;
@@ -36,15 +37,14 @@
     background-color: black;
   }
   .score{
-      font-size:100% ;
+      font-size:80;
       text-align: center;
       vertical-align: middle;
       color: black;
       border-radius: 5%;
-      left:10%;
-      width:10%;
-      height:10%;
-      border:10px solid rgb(53, 53, 46);
+      opacity: 75%;
+      top: 39%;
+      
   }
   
   img {
