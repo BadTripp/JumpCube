@@ -1,17 +1,23 @@
 gameengine=setInterval(movimento,5)
+schermo=document.getElementById("schermo")
 schermoy=document.getElementById("schermo").clientHeight;
 schermox=document.getElementById("schermo").clientWidth;
 alt_sprite=quadrato.offsetTop;
 lar_sprite=quadrato.offsetLeft;
+altezzabase=quadrato.offsetTop;
 barraSprite=document.getElementById("barra");
 quadrato=document.getElementById("quadrato");
+quadratoW=document.getElementById("quadrato").clientWidth;
+quadratoH=document.getElementById("quadrato").clientHeight;
 terreno=document.getElementById("terreno");
 cuore=document.getElementById("cuore");
+scorePanel=document.getElementById("score-text");
 step=0;
 step=schermox+30;
 jumprange=140;
 jumpspeed=1;
-altezzabase=quadrato.offsetTop;;
+larghezzabarra=30;
+altezzabarra=0;
 var rotazione=0;
 score=0;
 function movimento(){
@@ -38,13 +44,21 @@ function movimento(){
 function barra(){
     
     barraSprite.style.visibility="visible";
-    step-=1
+    step-=2;
     barraSprite.style.left=step+"px";
-    if(barraSprite.offsetLeft == 0)
-    {
+    if(barraSprite.offsetLeft <= 0)
+    {   Rcaso=Math.floor(Math.random() * 1);
+        
+        larghezzabarra=Math.floor(Math.random() * 45)+25;
+        barraSprite.style.width=larghezzabarra+"px";
+        if(Rcaso==1){ altezzabarra=Math.floor(Math.random() * 10);barraSprite.style.top=barraSprite.offsetTop-altezzabarra+"px";}
+        if(Rcaso==0){ altezzabarra=Math.floor(Math.random() * 3);barraSprite.style.top=barraSprite.offsetTop+altezzabarra+"px";}
         score+=1;
-        barraSprite.style.visibility="hidden";
-        barraSprite.style.left=schermox+50;
+        if(score==5){scorePanel.style.color = "green"; quadrato.style.height=quadratoH+5+"px"; quadrato.style.width=quadratoW+5+"px"; }
+        if(score==7){scorePanel.style.color = "orange";quadrato.style.height=quadratoH+10+"px"; quadrato.style.width=quadratoW+10+"px"}
+        if(score==20){scorePanel.style.color = "red";}
+        console.log(Rcaso,barraSprite.style.top);
+        barraSprite.style.left=schermox-100;
         step=schermox+49;
     }
 }
