@@ -9,9 +9,9 @@ terreno=document.getElementById("terreno");
 cuore=document.getElementById("cuore");
 step=0;
 step=schermox+30;
-jumprange=80;
+jumprange=140;
 jumpspeed=1;
-altezzabase=180;
+altezzabase=quadrato.offsetTop;;
 var rotazione=0;
 score=0;
 function movimento(){
@@ -28,6 +28,7 @@ function movimento(){
     //console.log("|MonitorX:"+schermox+"|MonitorY:"+schermoy+"|XSprite:"+lar_sprite,"|YSprite:"+alt_sprite);
     document.addEventListener("keydown", comandi);
     document.getElementById("score-text").innerHTML = "Score:"+score;
+    console.log(alt_sprite);
     if(isColliding(quadrato,barraSprite)){
         alert("Game Over!") ;
         clearInterval(gameengine);
@@ -49,13 +50,13 @@ function barra(){
 }
 function mobileTouch(){
     comandi(0,32);
-    console.log("t")
+    //console.log("t")
 }
 function comandi(event,t){
     if(event==0){var keyID = t;}else
     {var keyID = event.keyCode;}
     
-    console.log("t"+keyID+event )
+    //console.log("t"+keyID+event )
     c=0;
     if(keyID == 32){
         Isalto=setInterval(salto,13); 
@@ -65,12 +66,11 @@ function comandi(event,t){
 function salto(){ 
     rotazione+=15;
     if(rotazione <= 180){quadrato.style.transform ="rotate("+rotazione+"deg)";}else{rotazione=0;}
-    console.log("R"+rotazione);
+    //console.log("R"+rotazione);
     jumpspeed=alt_sprite;
     jumpspeed-=4;
     quadrato.style.top=jumpspeed+"px";  
-    console.log(alt_sprite,jumprange,altezzabase,altezzabase-jumprange)
-
+    //console.log(alt_sprite,jumprange,altezzabase,altezzabase-jumprange)
     if(alt_sprite <= altezzabase-jumprange){
         clearInterval(Isalto);
         Ibase=setInterval(base,5)
@@ -80,7 +80,7 @@ function base(){
             jumpspeed=alt_sprite;
             jumpspeed+=1;
             quadrato.style.top=jumpspeed+"px";  
-            console.log(alt_sprite,jumprange,altezzabase,altezzabase-jumprange)
+            //console.log(alt_sprite,jumprange,altezzabase,altezzabase-jumprange)
             if(isColliding(quadrato,terreno)){clearInterval(Ibase);}
 }
 let isColliding = function (div1, div2) {
