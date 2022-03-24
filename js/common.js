@@ -78,6 +78,7 @@ function comandi(event,t){
 
 }
 function salto(){ 
+    document.removeEventListener("keydown", comandi);
     rotazione+=15;
     if(rotazione <= 180){quadrato.style.transform ="rotate("+rotazione+"deg)";}else{rotazione=0;}
     //console.log("R"+rotazione);
